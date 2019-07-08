@@ -71,7 +71,8 @@
 }
 
 @media screen and (max-width: 525px) {
-  .intro-button {
-    top:80%;
-  }
+  .intro-text {
+    top: 40%;
+    font-size: 2rem;
+   }
 }

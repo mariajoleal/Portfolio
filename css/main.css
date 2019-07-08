@@ -1,0 +1,71 @@
+#particles-js{
+  background: #0B243B;
+  height: 100vh;
+}
+
+ .intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .intro-text {
+  position: absolute;
+  top: 40%;
+  color: white;
+  font-size: 3rem;
+ }
+
+ .highlight {
+  color: #E31B6D;
+}
+
+.intro-button {
+	position: absolute;
+	top:60%;
+	height: 50px;
+	width: 200px;
+	background-color: transparent;
+	font-size: 1.5rem;
+	border: 2px solid white;
+	transition: all 0.5s;
+  cursor: pointer;
+}
+
+.intro-button a {
+	text-decoration: none;
+	color: white;
+}
+
+.intro-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.intro-button span:after {
+  content: '\2193';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.intro-button:hover {
+	background-color: #01A9DB;
+	border-color: #01A9DB;
+}
+
+.intro-button:hover span {
+  padding-right: 25px;
+  
+}
+.intro-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.intro-button:focus {
+	outline:0;
+}

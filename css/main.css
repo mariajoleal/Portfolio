@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 #particles-js{
   background: #0B243B;
   height: 100vh;
@@ -68,6 +72,54 @@
 }
 .intro-button:focus {
 	outline:0;
+}
+
+/* Navbar style */
+
+#navbar {
+  overflow: hidden;
+  background-color: #1B242F;
+  border-bottom: 3px solid #01A9DB;
+  height: 8%;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  color: #E31B6D;
+}
+
+/* #navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+} */
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+section {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 100vh;
+}
+
+.content {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 @media screen and (max-width: 525px) {

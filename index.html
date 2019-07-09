@@ -16,8 +16,37 @@
       <button class="intro-button"><a href="#navbar"><span>View more</span></a></button>
     </div>
   </div> 
-  <h1>This is my portfolio</h1>
+  <nav id="navbar">
+    <a class="active" href="">Intro</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+  <section id="about">  
+    <div class="content">
+      <h1>Resize your browser and see how they adapt.</h1>
+    </div>
+  </section>
+  <section id="projects">  
+      <div class="content">
+        <h1>Resize your browser and see how they adapt.</h1>
+      </div>
+    </section>
   <script type="text/javascript" src="particles.js"></script>
   <script type="text/javascript" src="app.js"></script>
+  <script>
+      window.onscroll = function() {myFunction()};
+      
+      var navbar = document.getElementById("navbar");
+      var sticky = navbar.offsetTop;
+      
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      }
+      </script>
 </body>
 </html>

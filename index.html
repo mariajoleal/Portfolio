@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css">
   <link rel="stylesheet" type="text/css" media="screen" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/animate.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lora|Muli|Noto+Serif+KR|Open+Sans+Condensed:300|Raleway" rel="stylesheet">
 </head>
 <body>
@@ -17,23 +18,29 @@
     </div>
   </div> 
   <nav id="navbar">
-    <a class="active" href="">Intro</a>
+    <a href="#particles-js">Intro</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <a href="#">Contact</a>
+    <a href="#contact">Contact</a>
   </nav>
   <section id="about">  
     <div class="content">
-      <h1>Resize your browser and see how they adapt.</h1>
+      <h1 id="about-title">About</h1>
     </div>
   </section>
   <section id="projects">  
-      <div class="content">
-        <h1>Resize your browser and see how they adapt.</h1>
-      </div>
-    </section>
+    <div class="content">
+      <h1 id="projects-title">Projects</h1>
+    </div>
+  </section>
+  <section id="contact">  
+    <div class="content">
+      <h1 id="contact-title">Contact</h1>
+    </div>
+  </section>  
   <script type="text/javascript" src="particles.js"></script>
   <script type="text/javascript" src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
       window.onscroll = function() {myFunction()};
       
@@ -46,7 +53,41 @@
         } else {
           navbar.classList.remove("sticky");
         }
-      }
-      </script>
+    }
+
+    let navLinks = document.querySelectorAll("nav a");
+    window.addEventListener("scroll", event => {
+      navLinks.forEach(link => {
+          let section = document.querySelector(link.hash);
+          let fromTop = window.scrollY;
+          if (
+		        section.offsetTop <= fromTop + 100 &&
+		        section.offsetTop + section.offsetHeight  - 100 > fromTop 
+          ) {
+            link.classList.add("active");
+
+            if (link.hash === "#about"){
+              let element = document.getElementById("about-title");
+
+              element.classList.add("animated");
+              element.classList.add("zoomIn");
+            } else if (link.hash === "#projects") {
+              let element = document.getElementById("projects-title");
+
+              element.classList.add("animated");
+              element.classList.add("fadeInLeft");
+            } else {
+              let element = document.getElementById("contact-title");
+
+              element.classList.add("animated");
+              element.classList.add("bounceInUp");
+            }
+        }  else {
+		      link.classList.remove("active");
+		    }
+      });
+    });
+
+    </script>
 </body>
 </html>

@@ -131,3 +131,80 @@ particlesJS('particles-js',
   }
 
 );
+
+window.onscroll = function() {myFunction()};
+    
+    const navbar = document.getElementById("navbar");
+    const sticky = navbar.offsetTop;
+    
+    const about = document.getElementById("about-title");
+    const projects = document.getElementById("projects-title");
+    const contact = document.getElementById("contact-title");
+    const elements = [about,projects,contact];
+
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+
+    const navLinks = document.querySelectorAll("nav a");
+    
+    window.addEventListener("scroll", event => {
+      navLinks.forEach(link => {
+          let section = document.querySelector(link.hash);
+          let fromTop = window.scrollY;
+          if (
+		        section.offsetTop <= fromTop + 100 &&
+		        section.offsetTop + section.offsetHeight  - 100 > fromTop 
+          ) {
+            link.classList.add("active");
+        }  else {
+		      link.classList.remove("active");
+		    }
+      });
+    });
+
+    document.getElementById("navbar").addEventListener("click", event => {
+      let hash = event.path[0].hash;
+      
+      if (hash === "#about"){
+            about.classList.add("animated");
+            about.classList.add("zoomIn");
+            deleteAnimation(1,2);
+          } else if (hash === "#projects") {
+            projects.classList.add("animated");
+            projects.classList.add("fadeInLeft");
+            deleteAnimation(0,2);
+          } else {
+            contact.classList.add("animated");
+            contact.classList.add("bounceInUp");
+            deleteAnimation(0,1);
+          }
+    });
+
+    function deleteAnimation(pos,pos2) {
+      switch(pos+pos2) {
+        case 1: 
+          elements[0].classList.remove("animated");
+          elements[0].classList.remove("zoomIn");
+          elements[1].classList.remove("animated");
+          elements[1].classList.remove("fadeInLeft");
+          break;
+        case 2:
+          elements[0].classList.remove("animated");
+          elements[0].classList.remove("zoomIn");
+          elements[2].classList.remove("animated");
+          elements[2].classList.remove("bounceInUp");
+          break;
+        case 3:
+          elements[1].classList.remove("animated");
+          elements[1].classList.remove("fadeInLeft"); 
+          elements[2].classList.remove("animated");
+          elements[2].classList.remove("bounceInUp");
+          break;  
+      }
+    }

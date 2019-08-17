@@ -41,53 +41,5 @@
   <script type="text/javascript" src="particles.js"></script>
   <script type="text/javascript" src="app.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>
-      window.onscroll = function() {myFunction()};
-      
-      var navbar = document.getElementById("navbar");
-      var sticky = navbar.offsetTop;
-      
-      function myFunction() {
-        if (window.pageYOffset >= sticky) {
-          navbar.classList.add("sticky")
-        } else {
-          navbar.classList.remove("sticky");
-        }
-    }
-
-    let navLinks = document.querySelectorAll("nav a");
-    window.addEventListener("scroll", event => {
-      navLinks.forEach(link => {
-          let section = document.querySelector(link.hash);
-          let fromTop = window.scrollY;
-          if (
-		        section.offsetTop <= fromTop + 100 &&
-		        section.offsetTop + section.offsetHeight  - 100 > fromTop 
-          ) {
-            link.classList.add("active");
-
-            if (link.hash === "#about"){
-              let element = document.getElementById("about-title");
-
-              element.classList.add("animated");
-              element.classList.add("zoomIn");
-            } else if (link.hash === "#projects") {
-              let element = document.getElementById("projects-title");
-
-              element.classList.add("animated");
-              element.classList.add("fadeInLeft");
-            } else {
-              let element = document.getElementById("contact-title");
-
-              element.classList.add("animated");
-              element.classList.add("bounceInUp");
-            }
-        }  else {
-		      link.classList.remove("active");
-		    }
-      });
-    });
-
-    </script>
 </body>
 </html>
